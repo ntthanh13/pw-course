@@ -55,8 +55,8 @@ So sánh:
 1. Kiểu Nguyên thủy (primitive types)
 - Number
 - String
-- Boolen
-- Undefine
+- Boolean
+- Undefined
 - Null
 - Symbol
 - BigInt
@@ -66,8 +66,8 @@ So sánh:
 const soNguyen = 10; // number
 const soThuc = 1.5; // number
 const chuoi = "đây là chuỗi"; // string
-const isTrue = true; // boolen
-const isFalse = false; // boolen
+const isTrue = true; // boolean
+const isFalse = false; // boolean
 ```
 **Có thể kiếm tra kiểu dữ liệu của biến bằng 2 cách:**
 1. Đọc code
@@ -85,7 +85,7 @@ const isFalse = false; // boolen
 
 ## Toán tử toán học
 - `+` `-` `*` `/` như toán học bình thường
-- Nếu thực hiện phép chia cho 0 => kết quả sẽ là *Infinite*
+- Nếu thực hiện phép chia cho 0 => kết quả sẽ là *Infinity*
 - Nếu thực hiện phép tính khác kiểu (số và ko phải số) => kết quả sẽ là *NaN* (Not a number)
 
 ## Toán tử logic
