@@ -28,3 +28,9 @@ git reset --soft HEAD~1
 git reset HEAD~{số lượng commit}
 ```
 - Commit đầu tiên **không thể bị reset**, nếu muốn reset chỉ có thể xóa thư mục rồi `git init` lại
+
+## Git undo message
+- Thay đổi commit message mới nhất
+```
+git commit --amend -m"{message mới}"
+```
