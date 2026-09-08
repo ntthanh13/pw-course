@@ -5,16 +5,16 @@
 - Khi có file đang trong stage nhưng ko muốn đưa vào commit nữa => dùng un-stage để gỡ file khỏi stage
 - Gỡ file khỏi stage bằng câu lệnh
 ```
-git restore --stage {tên file} //gỡ 1 file
-git restore --stage {tên file 1} {tên file 2} //gỡ nhiều file 
+git restore --staged {tên file} //gỡ 1 file
+git restore --staged {tên file 1} {tên file 2} //gỡ nhiều file 
 ```
 - Gỡ toàn bộ file khỏi stage bằng câu lệnh
 ```
-git restore --stage .
+git restore --staged .
 ```
 - Tương tự như add, nếu file nằm trong folder con thì cần thêm folder chứa file trong câu lệnh un-stage
 ```
-git restore --stage {tên folder}/{tên file}
+git restore --staged {tên folder}/{tên file}
 ```
 
 ## Git un-commit
