@@ -41,3 +41,14 @@ Các convention phổ biến
 - **camelCase** : đặt tên biến
 - **PascalCase** : đặt tên class
 - **UPPER_CASE**
+
+## In kết hợp giá trị chuỗi và biến với console.log()
+- Để in ra kết hợp giá trị kiểu chuỗi và giá trị của biến, ta có hai cách như sau:
+    - `console.log("Dùng dấu cộng như sau: " + name);`
+    - `console.log("Hoặc dùng dấu phẩy: ", name);`
+- Để nối chuỗi từ 2 biến, dùng dấu `+`:
+```typescript
+const str1 = "Hello";
+const str2 = "Playwright Viet Nam"
+console.log(str1 + str2); // HelloPlaywright Viet Nam
+```

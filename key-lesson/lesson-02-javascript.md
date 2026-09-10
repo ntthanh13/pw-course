@@ -1,4 +1,5 @@
 > Ngày tạo: 03/09/2026 - ThanhNT
+> Cập nhật: 10/09/2026
 # Nội dung bài 2 - Javascript
 
 ## Hello world
@@ -87,6 +88,13 @@ const isFalse = false; // boolean
 - `+` `-` `*` `/` như toán học bình thường
 - Nếu thực hiện phép chia cho 0 => kết quả sẽ là *Infinity*
 - Nếu thực hiện phép tính khác kiểu (số và ko phải số) => kết quả sẽ là *NaN* (Not a number)
+
+## Toán tử chia dư
+- Dùng **%** sẽ trả về phần dư của phép tính
+- Ví dụ:
+    - 3%3 = 0 (vì 3 chia hết cho 3 dư 0)
+    - 3%2 = 1 (vì 3 không chia hết cho 2, dư 1)
+    - 3%4 = 3 (vì 3 không chia hết cho 4, dư 3)
 
 ## Toán tử logic
 - && : AND (tất cả = true thì true)
