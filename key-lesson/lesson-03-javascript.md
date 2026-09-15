@@ -1,4 +1,5 @@
 > Ngày tạo: 10/09/2026 - ThanhNT
+> Cập nhật: 15/09/2026
 # Nội dung bài 3: Javascript (tiếp theo)
 
 ## Câu điều kiện
@@ -46,6 +47,7 @@ Các convention phổ biến
 - Để in ra kết hợp giá trị kiểu chuỗi và giá trị của biến, ta có hai cách như sau:
     - `console.log("Dùng dấu cộng như sau: " + name);`
     - `console.log("Hoặc dùng dấu phẩy: ", name);`
+    - `console.log(`Hoặc thêm giá trị vào chuỗi bằng ${giá trị}`)`
 - Để nối chuỗi từ 2 biến, dùng dấu `+`:
 ```typescript
 const str1 = "Hello";
