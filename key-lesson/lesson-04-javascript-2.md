@@ -80,6 +80,7 @@ let sum = array.reduce((total, currentValue) => {
 }, 0); // Khởi điểm với total = 0
 console.log(sum);
 ```
+
 ```javascript
 const gioHang = [
     { id: 1, tenSanPham: "Nước ngọt", gia: 10000, soLuong: 3 },
@@ -101,4 +102,71 @@ const hasEven = array.some(num => num % 2 === 0); // mảng có số chẵn ko
 console.log(hasEven); // true
 const hasTen = array.some(num => num === 10); // mảng có số 10 ko
 console.log(hasTen); // false
+```
+
+## Hàm every
+Kiểm tra xem tất cả các phần tử trong mảng có thỏa mãn điều kiện hay không. Trả về true/false
+```javascript
+const array = [1, 2, 3, 4, 5];
+
+const hasEven = array.every(num => num % 2 === 0); // Tất cả các số có phải số chẵn không
+console.log(hasEven); // false
+
+const checkWithLog = array.every(value => {
+    console.log(`Check: ${value}`);
+    return value < 3;
+    // Check: 1
+    // Check: 2
+    // Check: 3
+})
+console.log(checkWithLog); // false
+```
+
+```javascript
+const gioHang = [
+    { id: 1, tenSanPham: "Nước ngọt", gia: 10000, soLuong: 6, tonKho: 50 },
+    { id: 2, tenSanPham: "Mì gói", gia: 2500, soLuong: 20, tonKho: 100 },
+    { id: 3, tenSanPham: "Trứng", gia: 27000, soLuong: 1, tonKho: 20 },
+]
+// Tất cả sản phẩm còn đủ hàng?
+const kiemHang = gioHang.every(quantity => quantity.soLuong <= quantity.tonKho)
+console.log(kiemHang);
+```
+
+## Hàm sort
+Sắp xếp các phần tử trong mảng theo thứ tự mặc định (alphabet/tăng dần)
+```javascript
+const traiCay = ["Táo", "Cam", "Bưởi", "Quýt", "Xoài"];
+console.log(traiCay); // [ 'Táo', 'Cam', 'Bưởi', 'Quýt', 'Xoài' ]
+traiCay.sort();
+console.log(traiCay); // [ 'Bưởi', 'Cam', 'Quýt', 'Táo', 'Xoài' ]
+```
+
+**Bug phổ biến** khi dùng sort cho chuỗi số 
+```javascript
+const chuoiSo = [3, 11, 1000, 5, 18, 1];
+chuoiSo.sort(); //[1, 1000, 11, 18, 3, 5]
+```
+Cách đúng: dùng **compare function**
+```javascript
+const chuoiSo = [3, 11, 1000, 5, 18, 1];
+chuoiSo.sort((a, b) => a - b); //so sánh tăng dần
+console.log(chuoiSo); // [ 1, 3, 5, 11, 18, 1000 ]
+```
+
+## Hàm thêm, xóa phần tử
+- Push: Thêm 1 hoặc nhiều phần tử vào cuối mảng. **Thay đổi mảng gốc** và **Trả về độ dài mới**
+- Pop: Xóa và **trả về phần tử cuối cùng** của mảng. Thay đổi mảng gốc và giảm độ dài
+- Unshift: Thêm 1 hoặc nhiều phần tử vào đầu mảng. **Thay đổi mảng gốc** và **Trả về độ dài mới**
+- Shift: Xóa và **trả về phần tử đầu tiên** của mảng. Thay đổi mảng gốc và giảm độ dài
+```javascript
+const traiCay = ["Táo", "Cam", "Bưởi", "Quýt", "Xoài"];
+
+const newLength = traiCay.push('Ổi');
+console.log(traiCay); // [ 'Táo', 'Cam', 'Bưởi', 'Quýt', 'Xoài', 'Ổi' ]
+console.log(newLength); // 6
+
+const firstFruit = traiCay.shift();
+console.log(traiCay); // [ 'Cam', 'Bưởi', 'Quýt', 'Xoài', 'Ổi' ]
+console.log(firstFruit); // 'Táo'
 ```
