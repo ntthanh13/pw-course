@@ -206,6 +206,46 @@ test.describe('demo selection input', async () => {
 });
 ```
 ---
+### Upload file
+Các phương thức upload file:
+- Single file upload
+- Multiple file upload
+- Image upload với preview
+- Drag and drop
+- Advanced Upload với Validation
+- Hidden Input Upload (Style Custom)
+```typescript
+test('single updload', async ({ page }) => {
+  await page.goto("https://material.playwrightvn.com/030-upload.html");
+
+  const fileInput = page.locator("//input[@id=singlefile");
+
+  await fileInput.setInputFiles("D:/CodePlaywright/Demo-file.txt")
+});
+```
+---
+### Hover
+Dùng để thực hiện action hover tooltip
+```typescript
+  const hoverArea = page.locator("//div[@id=tooltip-top");
+  await hoverArea.hover();
+```
+---
+### Handle confirmation dialog
+Dùng để xử lý các action đối với các dialog trên web page
+
+```typescript
+test('demo handle dialog',async({page}) => {
+    await page.goto("https://material.playwrightvn.com/03-xpath-todo-list.html");
+
+    await page.locator("//input[@id='new-task']").fill("test1");
+    await page.click("//button[@id='add-task']");
+    
+    // dùng callback function của playwright để handle dialog
+    page.on('dialog', async dialog => dialog.accept()); 
+    await page.click("//button[@id='test-delete']")
+});
+```
 ### Expected
 Kết quả mong đợi của test
 ```typescript
