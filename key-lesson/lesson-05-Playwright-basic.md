@@ -240,10 +240,10 @@ test('demo handle dialog',async({page}) => {
 
     await page.locator("//input[@id='new-task']").fill("test1");
     await page.click("//button[@id='add-task']");
-    
-    // dùng callback function của playwright để handle dialog
-    page.on('dialog', async dialog => dialog.accept()); 
-    await page.click("//button[@id='test-delete']")
+
+    page.on('dialog', async dialog => dialog.accept());
+    const deleteButton = page.locator("//button[text()='Delete']").first();
+    await deleteButton.click()
 });
 ```
 ### Expected
