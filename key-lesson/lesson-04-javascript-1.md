@@ -1,5 +1,5 @@
 > Ngày tạo: 15/09/2026 - ThanhNT
-# Bài 4: Javascript (tiếp theo) (quan trọng)
+# Bài 4: Javascript (tiếp theo)
 
 ## Object
 ### Object là gì

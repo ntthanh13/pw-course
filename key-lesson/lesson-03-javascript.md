@@ -44,10 +44,14 @@ Các convention phổ biến
 - **UPPER_CASE**
 
 ## In kết hợp giá trị chuỗi và biến với console.log()
-- Để in ra kết hợp giá trị kiểu chuỗi và giá trị của biến, ta có hai cách như sau:
-    - `console.log("Dùng dấu cộng như sau: " + name);`
-    - `console.log("Hoặc dùng dấu phẩy: ", name);`
-    - `console.log(`Hoặc thêm giá trị vào chuỗi bằng ${giá trị}`)`
+- Để in ra kết hợp giá trị kiểu chuỗi và giá trị của biến, ta có các cách như sau:
+```typescript
+console.log("Dùng dấu cộng như sau: " + name);
+
+console.log("Hoặc dùng dấu phẩy: ", name);
+
+console.log(`Hoặc thêm giá trị vào chuỗi bằng ${giá trị 1} ${giá trị 1}`)
+```
 - Để nối chuỗi từ 2 biến, dùng dấu `+`:
 ```typescript
 const str1 = "Hello";

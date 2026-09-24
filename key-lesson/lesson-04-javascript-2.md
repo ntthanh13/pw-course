@@ -1,4 +1,5 @@
-# Array utils function
+> Ngày tạo: 16/09/2026
+# Javascript - Array utils function
 ## Hàm map
 Hàm `map` dùng để tạo hàm mới bằng cách áp dụng một hàm lên từng phần tử của mảng gốc. Trả về **mảng mới có cùng độ dài**
 ```typescript
