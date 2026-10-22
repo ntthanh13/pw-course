@@ -80,4 +80,106 @@ Dùng type khi cần union, kết hợp nhiều kiểu, hoặc các kiểu phứ
 ---
 
 ## POM là gì  
-POM là cách tổ chức object theo từng page để quản lý code dễ hơn
+POM (Page Object Model) là cách tổ chức object theo từng page để quản lý code dễ hơn  
+POM thường có 3 phần chính:
+- Thuộc tính (propety)
+- Khởi tạo (constructor)
+- Hành động (method)
+
+## Kế thừa
+Kế thừa giúp cho việc các class con có thể sử dụng lại các thuộc tính của class cha mà không cần khai báo lại
+```typescript
+// Home page
+export class HomePage {
+    // propeties
+    page: Page;
+    baseUrl: string;
+    titleLoc: Locator;
+    lesson01Loc: Locator;
+    //constructor
+    constructor(page: Page) {
+        this.page = page;
+        this.baseUrl = "https://material.playwrightvn.com/";
+        this.titleLoc = page.locator("//h1");
+        this.lesson01Loc = page.locator("//a[@href='01-xpath-register-page.html']");
+    };
+    //method
+    async go() {
+        await this.page.goto(this.baseUrl);
+    };
+    async clickLesson01() {
+        await this.lesson01Loc.click();
+    };
+};
+```
+
+```typescript
+// Register page
+export class RegisterPage extends HomePage {
+    titleLoc: Locator;
+    usernameLoc: Locator;
+    emailLoc: Locator;
+
+    constructor(page: Page) {
+        super(page);
+        this.titleLoc = page.locator("//h1");
+        this.usernameLoc = page.locator("//input[@id='username']");
+        this.emailLoc = page.locator("//input[@id='email']");
+    }
+
+    async inputUsername(username: string) {
+        this.usernameLoc.fill(username);
+    }
+    async inputEmail(email: string) {
+        this.emailLoc.fill(email);
+    }
+}
+```
+---
+## POM Manager
+POM manager được sử dụng để quản lý và khởi tạo tất cả các POM trong code base  
+Cấu trúc POM manager có thể là:
+```typescript
+// Các POM
+class HomePage{ }
+class RegisterPage{ }
+// POM manager
+class PomManager {
+    // khai báo các POM
+    homePage : HomePage;
+    registerPage : RegisterPage;
+    // khởi tạo POM
+    constructor(page:Page){
+        this.homePage = new HomePage;
+        this.registerPage = new RegisterPage;
+    }
+}
+// Test gọi POM manager
+test('pom manager', async({page}) => {
+    const pom = new PomManager;
+});
+```
+---
+## POM return other POM
+Là một design pattern, mục tiêu là khi 1 page có tương tác sang page mới (trigger point), sẽ return sang page đó để sử dụng riêng trên page mới  
+Ưu điểm của cách design này là **hạn chế các bước khởi tạo** và tránh việc sử dụng extend có thể gây confuse. Việc khởi tạo page mới được thực hiện chỉ khi có trigger sang page đó
+```typescript
+// Home page
+export class HomePage {
+    // propeties
+    //constructor
+    //method
+    async clickLesson01() {
+        await this.lesson01Loc.click();
+        return new RegisterPage(page);  // tạo pom mới tại bước này
+    };
+};
+// Test
+test('pom return pom', async({page}) => {
+    const homePage = new HomePage(page);
+    let registerPage : RegisterPage;    // tạo biến registerPage với kiểu dữ liệu là 1 class, chưa tạo
+
+    regiterPage = await homePage.clickLesson01();   // sau khi click vào page register sẽ khởi tạo cho registerPage
+    // code sử dụng register page
+})
+```
